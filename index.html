@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMA Nusantara Unggul - Sekolah Masa Depan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            500: '#334e68',
+                            800: '#102a43',
+                            900: '#0b1b2b',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-slate-900 dark:text-gray-100 transition-colors duration-300 custom-scrollbar">
+
+    <!-- Top Bar Info -->
+    <div class="bg-navy-900 text-slate-300 text-xs py-2 px-4 border-b border-navy-800">
+        <div class="max-w-7xl mx-mx auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span><i class="fas fa-phone text-gold-400 mr-1"></i> (021) 555-0192</span>
+                <span><i class="fas fa-envelope text-gold-400 mr-1"></i> info@smanusantara.sch.id</span>
+                <span class="hidden sm:inline"><i class="fas fa-map-marker-alt text-gold-400 mr-1"></i> Jl. Pendidikan No. 45, Jakarta</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="#" class="hover:text-gold-400 transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-gold-400 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-gold-400 transition"><i class="fab fa-youtube"></i></a>
+                <button id="themeToggleBtn" class="ml-4 p-1 rounded-full bg-navy-800 hover:bg-navy-500 text-gold-400 transition focus:outline-none">
+                    <i id="themeIcon" class="fas fa-moon px-1"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-md transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Name -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center text-gold-400 font-bold text-2xl shadow-lg group-hover:scale-105 transition-transform">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold block leading-tight text-navy-900 dark:text-white">SMA NUSANTARA</span>
+                        <span class="text-xs font-semibold tracking-wider text-gold-500 uppercase block">UNGGUL & BERPRESTASI</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center space-x-1 font-medium text-sm">
+                    <a href="#beranda" class="px-3 py-2 rounded-lg text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800 hover:text-gold-500 transition">Beranda</a>
+                    <a href="#profil" class="px-3 py-2 rounded-lg text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800 hover:text-gold-500 transition">Profil & Visi</a>
+                    <a href="#jurusan" class="px-3 py-2 rounded-lg text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800 hover:text-gold-500 transition">Program & Jurusan</a>
+                    <a href="#fasilitas" class="px-3 py-2 rounded-lg text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800 hover:text-gold-500 transition">Fasilitas</a>
+                    <a href="#berita" class="px-3 py-2 rounded-lg text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800 hover:text-gold-500 transition">Berita</a>
+                    <a href="#guru" class="px-3 py-2 rounded-lg text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800 hover:text-gold-500 transition">Guru & Staf</a>
+                    <a href="#ppdb" class="ml-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-500 text-slate-900 font-bold shadow-md hover:shadow-lg transition duration-200 transform hover:-translate-y-0.5">
+                        <i class="fas fa-user-plus mr-1"></i> PPDB Online
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-navy-900 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-800 focus:outline-none">
+                    <i id="mobileMenuIcon" class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#beranda" class="block px-3 py-2 rounded-md font-medium text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800">Beranda</a>
+            <a href="#profil" class="block px-3 py-2 rounded-md font-medium text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800">Profil & Visi</a>
+            <a href="#jurusan" class="block px-3 py-2 rounded-md font-medium text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800">Program & Jurusan</a>
+            <a href="#fasilitas" class="block px-3 py-2 rounded-md font-medium text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800">Fasilitas</a>
+            <a href="#berita" class="block px-3 py-2 rounded-md font-medium text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800">Berita & Informasi</a>
+            <a href="#guru" class="block px-3 py-2 rounded-md font-medium text-navy-900 dark:text-gray-200 hover:bg-navy-50 dark:hover:bg-slate-800">Guru & Staf</a>
+            <a href="#ppdb" class="block px-3 py-2.5 rounded-lg bg-gold-500 text-slate-900 font-bold text-center mt-2">
+                <i class="fas fa-user-plus mr-1"></i> Pendaftaran PPDB
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Slider Section -->
+    <section id="beranda" class="relative overflow-hidden bg-navy-900 text-white">
+        <!-- Carousel Items Container -->
+        <div id="heroCarousel" class="relative min-h-[520px] md:min-h-[620px] flex items-center transition-all duration-700 ease-in-out">
+            <!-- Slide 1 -->
+            <div class="slide absolute inset-0 w-full h-full opacity-100 transition-opacity duration-1000 bg-cover bg-center flex items-center" style="background-image: linear-gradient(rgba(11, 27, 43, 0.8), rgba(11, 27, 43, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop');">
+                <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full py-12">
+                    <div class="max-w-3xl space-y-6">
+                        <span class="px-3 py-1 bg-gold-500/20 border border-gold-400/40 text-gold-400 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider">Pendidikan Berkarakter & Digital</span>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Mewujudkan Generasi Cerdas & Berdaya Saing Global</h1>
+                        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">SMA Nusantara Unggul berkomitmen memberikan lingkungan belajar modern berbasis teknologi dan karakter kebangsaan yang kuat.</p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="#ppdb" class="px-6 py-3.5 rounded-full bg-gold-500 hover:bg-gold-600 text-slate-900 font-bold transition shadow-lg hover:shadow-gold-500/30">Daftar PPDB Sekarang</a>
+                            <a href="#profil" class="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold border border-white/20 transition">Jelajahi Profil Sekolah</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="slide absolute inset-0 w-full h-full opacity-0 transition-opacity duration-1000 bg-cover bg-center flex items-center" style="background-image: linear-gradient(rgba(11, 27, 43, 0.8), rgba(11, 27, 43, 0.85)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600&auto=format&fit=crop');">
+                <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full py-12">
+                    <div class="max-w-3xl space-y-6">
+                        <span class="px-3 py-1 bg-gold-500/20 border border-gold-400/40 text-gold-400 rounded-full text-xs sm:text-sm font-semibold uppercase tracking-wider">Fasilitas Modern & Lengkap</span>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Laboratorium Sains & Komputer Berstandar Internasional</h1>
+                        <p class="text-base sm:text-lg text-slate-300 leading-relaxed">Mendukung kreativitas dan riset siswa dengan sarana teknologi canggih dan pendampingan tenaga pendidik berpengalaman.</p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="#fasilitas" class="px-6 py-3.5 rounded-full bg-gold-500 hover:bg-gold-600 text-slate-900 font-bold transition shadow-lg">Lihat Fasilitas</a>
+                            <a href="#jurusan" class="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white font-semibold border border-white/20 transition">Program Keahlian</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Navigation Controls -->
+        <button id="prevSlide" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/50 hover:bg-slate-900/80 text-white flex items-center justify-center border border-white/20 transition z-10">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextSlide" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/50 hover:bg-slate-900/80 text-white flex items-center justify-center border border-white/20 transition z-10">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slide Indicators -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+            <button class="indicator w-3 h-3 rounded-full bg-gold-400 transition-all duration-300" onclick="goToSlide(0)"></button>
+            <button class="indicator w-3 h-3 rounded-full bg-white/50 transition-all duration-300" onclick="goToSlide(1)"></button>
+        </div>
+    </section>
+
+    <!-- Quick Link Portal Cards -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 flex items-start space-x-4 hover:-translate-y-1 transition duration-300">
+                <div class="p-3 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-xl text-2xl shrink-0">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-navy-900 dark:text-white">PPDB Online</h3>
+                    <p class="text-sm text-gray-600 dark:text-slate-400 mt-1">Pendaftaran siswa baru tahun ajaran 2026/2027 telah dibuka secara daring.</p>
+                    <a href="#ppdb" class="inline-block mt-3 text-sm font-semibold text-gold-600 dark:text-gold-400 hover:underline">Daftar Sekarang &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 flex items-start space-x-4 hover:-translate-y-1 transition duration-300">
+                <div class="p-3 bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 rounded-xl text-2xl shrink-0">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-navy-900 dark:text-white">Portal Akademik</h3>
+                    <p class="text-sm text-gray-600 dark:text-slate-400 mt-1">Akses nilai, jadwal pelajaran, dan E-Learning untuk siswa dan orang tua.</p>
+                    <button onclick="alert('Portal Akademik SimuLasi: Fitur Login terintegrasi akan siap digunakan.')" class="inline-block mt-3 text-sm font-semibold text-gold-600 dark:text-gold-400 hover:underline">Masuk Portal &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 flex items-start space-x-4 hover:-translate-y-1 transition duration-300">
+                <div class="p-3 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 rounded-xl text-2xl shrink-0">
+                    <i class="fas fa-book-reader"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-navy-900 dark:text-white">Perpustakaan Digital</h3>
+                    <p class="text-sm text-gray-600 dark:text-slate-400 mt-1">Ribuan koleksi buku digital dan jurnal ilmiah dapat diakses online.</p>
+                    <button onclick="alert('E-Library SimuLasi: Mengalihkan ke perpustakaan digital.')" class="inline-block mt-3 text-sm font-semibold text-gold-600 dark:text-gold-400 hover:underline">Akses E-Book &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 mt-8 bg-slate-100 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <!-- Stat 1 -->
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 dark:text-gold-400 flex justify-center items-center">
+                        <span class="counter" data-target="1250">0</span>+
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400 mt-2 font-medium uppercase tracking-wider">Siswa Aktif</p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 dark:text-gold-400 flex justify-center items-center">
+                        <span class="counter" data-target="78">0</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400 mt-2 font-medium uppercase tracking-wider">Guru & Staf</p>
+                </div>
+                <!-- Stat 3 -->
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 dark:text-gold-400 flex justify-center items-center">
+                        <span class="counter" data-target="36">0</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400 mt-2 font-medium uppercase tracking-wider">Ruang Kelas & Lab</p>
+                </div>
+                <!-- Stat 4 -->
+                <div class="p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-navy-900 dark:text-gold-400 flex justify-center items-center">
+                        <span class="counter" data-target="142">0</span>+
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-500 dark:text-slate-400 mt-2 font-medium uppercase tracking-wider">Prestasi Diraih</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sambutan Kepala Sekolah & Profil -->
+    <section id="profil" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Foto Kepala Sekolah -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-sm lg:max-w-none">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-navy-800 to-gold-500 rounded-3xl blur-lg opacity-30"></div>
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" 
+                             alt="Kepala Sekolah" 
+                             class="relative rounded-2xl shadow-2xl object-cover w-full h-[450px]"
+                             onerror="this.src='https://placehold.co/600x800/102a43/ffffff?text=Kepala+Sekolah'">
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-xl border border-gray-200 dark:border-slate-700 shadow-lg text-center">
+                            <h4 class="font-bold text-navy-900 dark:text-white">Dr. H. Ahmad Wijaya, M.Pd.</h4>
+                            <p class="text-xs text-gold-600 dark:text-gold-400 font-medium">Kepala SMA Nusantara Unggul</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sambutan Text & Visi Misi -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-gold-600 dark:text-gold-400 font-semibold text-sm uppercase tracking-wider">Sambutan Kepala Sekolah</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 dark:text-white mt-1">Selamat Datang di SMA Nusantara Unggul</h2>
+                    </div>
+                    <p class="text-gray-600 dark:text-slate-300 leading-relaxed">
+                        "Assalamu’alaikum Warahmatullahi Wabarakatuh. Selamat datang di portal resmi SMA Nusantara Unggul. Kami berkomitmen untuk menyelenggarakan pendidikan berkualitas tinggi yang menyeimbangkan kecerdasan intelektual, emosional, dan spiritual. Melalui kurikulum berbasis teknologi dan lingkungan inklusif, kami siap mendampingi setiap siswa meraih potensi terbaiknya."
+                    </p>
+
+                    <!-- Tabs Visi & Misi -->
+                    <div class="mt-8 border border-gray-200 dark:border-slate-700 rounded-2xl p-6 bg-white dark:bg-slate-800 shadow-sm">
+                        <div class="flex space-x-4 border-b border-gray-200 dark:border-slate-700 pb-3">
+                            <button id="btnVisi" onclick="switchTab('visi')" class="font-bold text-navy-900 dark:text-gold-400 border-b-2 border-gold-500 pb-1 focus:outline-none">Visi Sekolah</button>
+                            <button id="btnMisi" onclick="switchTab('misi')" class="font-bold text-gray-400 hover:text-navy-900 dark:hover:text-white pb-1 focus:outline-none">Misi Utama</button>
+                        </div>
+                        <div id="tabVisi" class="mt-4 text-sm text-gray-600 dark:text-slate-300">
+                            <p class="italic text-base font-semibold text-navy-800 dark:text-slate-200">"Menjadi lembaga pendidikan unggulan yang menghasilkan lulusan berkarakter mulia, menguasai ilmu pengetahuan dan teknologi, serta berdaya saing internasional pada tahun 2030."</p>
+                        </div>
+                        <div id="tabMisi" class="mt-4 text-sm text-gray-600 dark:text-slate-300 hidden">
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Menyelenggarakan proses pembelajaran yang inovatif, kreatif, dan berbasis teknologi.</li>
+                                <li>Menanamkan nilai-nilai kebangsaan, integritas, dan budi pekerti luhur.</li>
+                                <li>Pengembangan bakat non-akademik melalui kegiatan ektrakurikuler berkelanjutan.</li>
+                                <li>Membangun kemitraan global dengan berbagai institusi pendidikan tinggi nasional dan internasional.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program / Jurusan & Ekstrakurikuler -->
+    <section id="jurusan" class="py-20 bg-slate-100 dark:bg-slate-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-sm uppercase tracking-wider">Pilihan Akademik</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 dark:text-white mt-1">Program Keahlian & Jurusan</h2>
+                <p class="text-gray-600 dark:text-slate-400 mt-2">Kurikulum disesuaikan dengan kebutuhan akademik era modern dan kesiapan perguruan tinggi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Jurusan 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 group hover:shadow-2xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-blue-600 to-indigo-700 flex items-center justify-center text-white text-5xl relative overflow-hidden">
+                        <i class="fas fa-flask group-hover:scale-110 transition duration-300"></i>
+                        <span class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-xs px-3 py-1 rounded-full uppercase font-bold">MIPA</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy-900 dark:text-white">Matematika & IPA</h3>
+                        <p class="text-sm text-gray-600 dark:text-slate-300 mt-2">Fokus pada pendalaman Fisika, Kimia, Biologi, dan Matematika Tingkat Lanjut. Dilengkapi eksperimen laboratorium intensif.</p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700 flex justify-between items-center text-xs font-semibold text-gray-500 dark:text-slate-400">
+                            <span><i class="fas fa-users mr-1"></i> 6 Rombel</span>
+                            <span><i class="fas fa-microscope mr-1"></i> Lab Lengkap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jurusan 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 group hover:shadow-2xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-amber-500 to-orange-600 flex items-center justify-center text-white text-5xl relative overflow-hidden">
+                        <i class="fas fa-chart-line group-hover:scale-110 transition duration-300"></i>
+                        <span class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-xs px-3 py-1 rounded-full uppercase font-bold">IPS</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy-900 dark:text-white">Ilmu Pengetahuan Sosial</h3>
+                        <p class="text-sm text-gray-600 dark:text-slate-300 mt-2">Mempelajari Ekonomi, Sosiologi, Geografi, dan Sejarah dengan analisis kasus nyata dan kepemimpinan sosial.</p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700 flex justify-between items-center text-xs font-semibold text-gray-500 dark:text-slate-400">
+                            <span><i class="fas fa-users mr-1"></i> 5 Rombel</span>
+                            <span><i class="fas fa-briefcase mr-1"></i> Riset Lapangan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jurusan 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-slate-700 group hover:shadow-2xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-r from-emerald-600 to-teal-700 flex items-center justify-center text-white text-5xl relative overflow-hidden">
+                        <i class="fas fa-laptop-code group-hover:scale-110 transition duration-300"></i>
+                        <span class="absolute top-4 right-4 bg-white/20 backdrop-blur-md text-xs px-3 py-1 rounded-full uppercase font-bold">Peminatan IT</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-navy-900 dark:text-white">Informatika & Rekayasa</h3>
+                        <p class="text-sm text-gray-600 dark:text-slate-300 mt-2">Program unggulan lokal yang mengajarkan dasar Pemrograman Web, AI sederhana, Robotik, dan Desain Grafis.</p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 dark:border-slate-700 flex justify-between items-center text-xs font-semibold text-gray-500 dark:text-slate-400">
+                            <span><i class="fas fa-users mr-1"></i> 3 Rombel</span>
+                            <span><i class="fas fa-code mr-1"></i> Lab Coding</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Sekolah -->
+    <section id="fasilitas" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-sm uppercase tracking-wider">Lingkungan Belajar</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 dark:text-white mt-1">Fasilitas Unggulan</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Facility Item -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=600&auto=format&fit=crop" alt="Perpustakaan" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400/334e68/ffffff?text=Perpustakaan'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                        <h4 class="font-bold text-lg">Perpustakaan Digital</h4>
+                        <p class="text-xs text-slate-300 mt-1">Ber-AC dengan ribuan koleksi e-book & ruang baca nyaman.</p>
+                    </div>
+                </div>
+
+                <!-- Facility Item -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Lab Komputer" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400/334e68/ffffff?text=Lab+Komputer'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                        <h4 class="font-bold text-lg">Lab Komputer i7</h4>
+                        <p class="text-xs text-slate-300 mt-1">120+ unit komputer spesifikasi tinggi dan koneksi fiber optik.</p>
+                    </div>
+                </div>
+
+                <!-- Facility Item -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop" alt="Lap Olahraga" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400/334e68/ffffff?text=Lapangan+Olahraga'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                        <h4 class="font-bold text-lg">Lap. Olahraga Indoor</h4>
+                        <p class="text-xs text-slate-300 mt-1">Fasilitas Basket, Futsal, dan Bulutangkis berstandar nasional.</p>
+                    </div>
+                </div>
+
+                <!-- Facility Item -->
+                <div class="relative group rounded-2xl overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop" alt="Auditorium" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400/334e68/ffffff?text=Auditorium'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                        <h4 class="font-bold text-lg">Auditorium Serbaguna</h4>
+                        <p class="text-xs text-slate-300 mt-1">Kapasitas 1000 orang untuk kegiatan pentas seni & seminar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita, Pengumuman & Filter Modal -->
+    <section id="berita" class="py-20 bg-slate-100 dark:bg-slate-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="text-gold-600 dark:text-gold-400 font-semibold text-sm uppercase tracking-wider">Kabar Terbaru</span>
+                    <h2 class="text-3xl font-extrabold text-navy-900 dark:text-white mt-1">Berita & Pengumuman</h2>
+                </div>
+
+                <!-- Search and Filter Controls -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="relative">
+                        <input type="text" id="newsSearchInput" placeholder="Cari berita..." class="pl-9 pr-4 py-2 rounded-xl text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-gold-400 text-gray-800 dark:text-white">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400 text-xs"></i>
+                    </div>
+                    <div class="flex space-x-1 bg-white dark:bg-slate-800 p-1 rounded-xl border border-gray-200 dark:border-slate-700 text-xs font-semibold">
+                        <button onclick="filterNews('all')" class="news-filter-btn px-3 py-1.5 rounded-lg bg-navy-900 text-white dark:bg-gold-500 dark:text-slate-900 transition">Semua</button>
+                        <button onclick="filterNews('Berita')" class="news-filter-btn px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition">Berita</button>
+                        <button onclick="filterNews('Pengumuman')" class="news-filter-btn px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition">Pengumuman</button>
+                        <button onclick="filterNews('Prestasi')" class="news-filter-btn px-3 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition">Prestasi</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Dynamic cards populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Detail Berita -->
+    <div id="newsModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-slate-700 my-8">
+            <div class="relative h-56">
+                <img id="modalImg" src="" alt="Detail" class="w-full h-full object-cover">
+                <button onclick="closeNewsModal()" class="absolute top-4 right-4 bg-black/50 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/80 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6 space-y-4 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                <div class="flex items-center space-x-3 text-xs text-gray-500 dark:text-slate-400">
+                    <span id="modalCategory" class="px-2.5 py-1 bg-gold-100 dark:bg-gold-900/30 text-gold-600 dark:text-gold-400 rounded-full font-bold"></span>
+                    <span id="modalDate"><i class="far fa-calendar mr-1"></i></span>
+                </div>
+                <h3 id="modalTitle" class="text-2xl font-bold text-navy-900 dark:text-white"></h3>
+                <p id="modalContent" class="text-gray-600 dark:text-slate-300 leading-relaxed text-sm"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guru & Staf Section -->
+    <section id="guru" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gold-600 dark:text-gold-400 font-semibold text-sm uppercase tracking-wider">Tenaga Pendidik</span>
+                <h2 class="text-3xl font-extrabold text-navy-900 dark:text-white mt-1">Guru & Staf Pengajar</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Teacher 1 -->
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl text-center border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" class="w-24 h-24 rounded-full mx-auto object-cover mb-3" onerror="this.src='https://placehold.co/200x200/102a43/ffffff?text=Guru'">
+                    <h4 class="font-bold text-navy-900 dark:text-white text-base">Siti Rahmawati, M.Sc.</h4>
+                    <p class="text-xs text-gold-600 dark:text-gold-400 font-medium">Guru Matematika</p>
+                </div>
+                <!-- Teacher 2 -->
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl text-center border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop" class="w-24 h-24 rounded-full mx-auto object-cover mb-3" onerror="this.src='https://placehold.co/200x200/102a43/ffffff?text=Guru'">
+                    <h4 class="font-bold text-navy-900 dark:text-white text-base">Budi Santoso, S.Pd.</h4>
+                    <p class="text-xs text-gold-600 dark:text-gold-400 font-medium">Guru Fisika</p>
+                </div>
+                <!-- Teacher 3 -->
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl text-center border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1580894732413-a7235a16369c?q=80&w=400&auto=format&fit=crop" class="w-24 h-24 rounded-full mx-auto object-cover mb-3" onerror="this.src='https://placehold.co/200x200/102a43/ffffff?text=Guru'">
+                    <h4 class="font-bold text-navy-900 dark:text-white text-base">Dewi Lestari, M.Hum.</h4>
+                    <p class="text-xs text-gold-600 dark:text-gold-400 font-medium">Guru Bahasa Inggris</p>
+                </div>
+                <!-- Teacher 4 -->
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl text-center border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-md transition">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" class="w-24 h-24 rounded-full mx-auto object-cover mb-3" onerror="this.src='https://placehold.co/200x200/102a43/ffffff?text=Guru'">
+                    <h4 class="font-bold text-navy-900 dark:text-white text-base">Hendrik Pratama, S.Kom.</h4>
+                    <p class="text-xs text-gold-600 dark:text-gold-400 font-medium">Guru Informatika</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PPDB Form Section -->
+    <section id="ppdb" class="py-20 bg-navy-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Info Left -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="px-3 py-1 bg-gold-500/20 border border-gold-400/40 text-gold-400 rounded-full text-xs font-semibold uppercase tracking-wider">Penerimaan Siswa Baru</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">Formulir Pendaftaran PPDB Online 2026</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Isi formulir pendaftaran secara cermat. Setelah mendaftar, data Anda akan tersimpan di sistem lokal dan Anda dapat mengunduh bukti rekap formulir pendaftaran.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-gold-500 text-slate-900 rounded-lg text-sm mt-1 font-bold"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm">Persyaratan Dokumen</h4>
+                                <p class="text-xs text-slate-400">FC Ijazah/SKL, Pas Foto 3x4, Kartu Keluarga, dan Akta Kelahiran.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="p-2 bg-gold-500 text-slate-900 rounded-lg text-sm mt-1 font-bold"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm">Jadwal Seleksi</h4>
+                                <p class="text-xs text-slate-400">Gelombang I: 1 Feb - 30 April 2026. Tes Potensi Akademik Online.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rekap Pendaftar Count & Download Action -->
+                    <div class="p-4 bg-navy-800 rounded-xl border border-navy-500/50 flex items-center justify-between mt-6">
+                        <div>
+                            <p class="text-xs text-slate-400">Pendaftar Tersimpan (Lokal):</p>
+                            <span id="pendaftarCount" class="text-xl font-bold text-gold-400">0 Siswa</span>
+                        </div>
+                        <button onclick="downloadCSV()" class="px-3 py-2 bg-slate-700 hover:bg-slate-600 text-xs text-white font-semibold rounded-lg transition flex items-center gap-1">
+                            <i class="fas fa-file-csv"></i> Unduh Data Rekap
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Form Right -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-800 text-gray-800 dark:text-white p-6 sm:p-8 rounded-3xl shadow-2xl">
+                    <form id="formPPDB" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 dark:text-slate-300 mb-1">Nama Lengkap Siswa *</label>
+                            <input type="text" id="nama" required placeholder="Contoh: Budi Pratama" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 dark:text-slate-300 mb-1">NISN *</label>
+                                <input type="number" id="nisn" required placeholder="10 Digit NISN" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 dark:text-slate-300 mb-1">Jenis Kelamin *</label>
+                                <select id="jk" required class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                                    <option value="">-- Pilih --</option>
+                                    <option value="Laki-Laki">Laki-Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 dark:text-slate-300 mb-1">Pilihan Jurusan *</label>
+                                <select id="pilihanJurusan" required class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                                    <option value="">-- Pilih Jurusan --</option>
+                                    <option value="MIPA (Matematika & IPA)">MIPA (Matematika & IPA)</option>
+                                    <option value="IPS (Ilmu Pengetahuan Sosial)">IPS (Ilmu Pengetahuan Sosial)</option>
+                                    <option value="Informatika & Rekayasa">Informatika & Rekayasa</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 dark:text-slate-300 mb-1">No. WhatsApp / HP *</label>
+                                <input type="tel" id="telepon" required placeholder="08123456789" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 dark:text-slate-300 mb-1">Asal Sekolah (SMP/MTs) *</label>
+                            <input type="text" id="asalSekolah" required placeholder="Contoh: SMP Negeri 1 Jakarta" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500">
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 bg-gold-500 hover:bg-gold-600 text-slate-900 font-bold rounded-xl shadow-lg transition duration-200 mt-2">
+                            <i class="fas fa-paper-plane mr-1"></i> Kirim Pendaftaran
+                        </button>
+                    </form>
+
+                    <!-- Alert Success Box -->
+                    <div id="ppdbAlert" class="hidden mt-4 p-4 bg-emerald-100 border border-emerald-400 text-emerald-800 rounded-xl text-xs font-medium">
+                        <i class="fas fa-check-circle mr-1"></i> Pendaftaran berhasil dikirim dan tersimpan secara lokal!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peta Lokasi & Kontak Simulation -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="text-gold-600 dark:text-gold-400 font-semibold text-sm uppercase tracking-wider">Lokasi Kami</span>
+                    <h2 class="text-3xl font-extrabold text-navy-900 dark:text-white mt-1">Kunjungi Kampus SMA Nusantara</h2>
+                    <p class="text-gray-600 dark:text-slate-400 mt-2 text-sm leading-relaxed">
+                        Kampus kami terletak di pusat kota dengan akses transportasi publik yang mudah. Silakan hubungi kami untuk informasi kunjungan studi atau pertanyaan seputar pendaftaran.
+                    </p>
+                    <div class="mt-6 space-y-3 text-sm">
+                        <div class="flex items-center space-x-3 text-gray-700 dark:text-slate-300">
+                            <i class="fas fa-map-marker-alt text-gold-500 w-5"></i>
+                            <span>Jl. Pendidikan No. 45, Kebayoran, Jakarta Selatan</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-gray-700 dark:text-slate-300">
+                            <i class="fas fa-clock text-gold-500 w-5"></i>
+                            <span>Senin - Jumat: 07.00 - 16.00 WIB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Simulated Map Box -->
+                <div class="h-72 bg-slate-200 dark:bg-slate-700 rounded-3xl overflow-hidden relative shadow-inner flex items-center justify-center border border-gray-300 dark:border-slate-600">
+                    <iframe title="Map Lokasi" class="w-full h-full grayscale opacity-80 dark:opacity-60" src="https://maps.google.com/maps?q=Jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+                    <div class="absolute bottom-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-4 py-2 rounded-xl text-xs font-bold text-navy-900 dark:text-gold-400 shadow">
+                        <i class="fas fa-location-arrow text-gold-500 mr-1"></i> Gedung Utama SMA Nusantara Unggul
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 text-slate-400 text-sm border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2 text-white font-bold text-lg">
+                        <i class="fas fa-graduation-cap text-gold-400"></i>
+                        <span>SMA NUSANTARA</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Membentuk generasi pemimpin berkarakter, inovatif, dan berdaya saing global.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-3">Tautan Cepat</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#profil" class="hover:text-gold-400 transition">Profil & Visi Misi</a></li>
+                        <li><a href="#jurusan" class="hover:text-gold-400 transition">Program Keahlian</a></li>
+                        <li><a href="#berita" class="hover:text-gold-400 transition">Berita Terkini</a></li>
+                        <li><a href="#ppdb" class="hover:text-gold-400 transition">PPDB Online</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-3">Ekstrakulikuler</h5>
+                    <ul class="space-y-2 text-xs">
+                        <li>Pramuka & PMR</li>
+                        <li>Robotik & Coding Club</li>
+                        <li>Basket & Futsal</li>
+                        <li>Seni Musik & Tari Tradisional</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-3">Kontak</h5>
+                    <p class="text-xs leading-relaxed">
+                        Email: info@smanusantara.sch.id<br>
+                        Telp: (021) 555-0192<br>
+                        WhatsApp: +62 812-3456-7890
+                    </p>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-navy-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 SMA Nusantara Unggul. All Rights Reserved.</p>
+                <p>Didesain untuk Operasional Lokal Tanpa Hosting</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Functionality -->
+    <script>
+        // Data Mockup Berita
+        const newsData = [
+            {
+                id: 1,
+                title: "Siswa SMA Nusantara Raih Medali Emas OSN Fisika 2026",
+                category: "Prestasi",
+                date: "20 September 2026",
+                img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=600&auto=format&fit=crop",
+                content: "Selamat kepada Ananda Rizky yang telah berhasil meraih Medali Emas Olimpiade Sains Nasional (OSN) bidang Fisika. Prestasi luar biasa ini diraih setelah bersaing ketat dengan ratusan peserta dari seluruh Indonesia."
+            },
+            {
+                id: 2,
+                title: "Pendaftaran PPDB Gelombang I Resmi Dibuka",
+                category: "Pengumuman",
+                date: "15 September 2026",
+                img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop",
+                content: "Penerimaan Peserta Didik Baru (PPDB) SMA Nusantara Unggul Gelombang I resmi dibuka online. Calon siswa dapat mengisi formulir langsung melalui website tanpa perlu mengantre di sekolah."
+            },
+            {
+                id: 3,
+                title: "Pelaksanaan Workshop Coding & AI untuk Generasi Muda",
+                category: "Berita",
+                date: "10 September 2026",
+                img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop",
+                content: "Sekolah mengadakan workshop teknologi dasar AI dan Pemrograman Web bersama para praktisi industri untuk membekali siswa dengan keterampilan digital modern."
+            }
+        ];
+
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if(document.documentElement.classList.contains('dark')) {
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hero Slider Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#heroCarousel .slide');
+        const indicators = document.querySelectorAll('.indicator');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if(i === index) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                }
+            });
+            indicators.forEach((ind, i) => {
+                if(i === index) {
+                    ind.classList.replace('bg-white/50', 'bg-gold-400');
+                } else {
+                    ind.classList.replace('bg-gold-400', 'bg-white/50');
+                }
+            });
+            currentSlide = index;
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        document.getElementById('nextSlide').addEventListener('click', () => {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        });
+
+        document.getElementById('prevSlide').addEventListener('click', () => {
+            let prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        });
+
+        setInterval(() => {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }, 6000);
+
+        // Visi Misi Tab Switch
+        function switchTab(tab) {
+            const btnVisi = document.getElementById('btnVisi');
+            const btnMisi = document.getElementById('btnMisi');
+            const tabVisi = document.getElementById('tabVisi');
+            const tabMisi = document.getElementById('tabMisi');
+
+            if(tab === 'visi') {
+                tabVisi.classList.remove('hidden');
+                tabMisi.classList.add('hidden');
+                btnVisi.className = "font-bold text-navy-900 dark:text-gold-400 border-b-2 border-gold-500 pb-1 focus:outline-none";
+                btnMisi.className = "font-bold text-gray-400 hover:text-navy-900 dark:hover:text-white pb-1 focus:outline-none";
+            } else {
+                tabMisi.classList.remove('hidden');
+                tabVisi.classList.add('hidden');
+                btnMisi.className = "font-bold text-navy-900 dark:text-gold-400 border-b-2 border-gold-500 pb-1 focus:outline-none";
+                btnVisi.className = "font-bold text-gray-400 hover:text-navy-900 dark:hover:text-white pb-1 focus:outline-none";
+            }
+        }
+
+        // Render News Cards
+        function renderNews(filter = 'all', searchKeyword = '') {
+            const newsGrid = document.getElementById('newsGrid');
+            newsGrid.innerHTML = '';
+
+            let filtered = newsData.filter(item => {
+                const matchCategory = filter === 'all' || item.category === filter;
+                const matchSearch = item.title.toLowerCase().includes(searchKeyword.toLowerCase()) || item.content.toLowerCase().includes(searchKeyword.toLowerCase());
+                return matchCategory && matchSearch;
+            });
+
+            if(filtered.length === 0) {
+                newsGrid.innerHTML = `<div class="col-span-3 text-center py-8 text-gray-500">Tidak ada berita atau pengumuman yang sesuai.</div>`;
+                return;
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md border border-gray-100 dark:border-slate-700 flex flex-col justify-between hover:shadow-lg transition";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-44 overflow-hidden">
+                            <img src="${item.img}" alt="${item.title}" class="w-full h-full object-cover hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/600x400/102a43/ffffff?text=Berita'">
+                            <span class="absolute top-3 left-3 bg-gold-500 text-slate-900 font-bold text-xs px-2.5 py-1 rounded-full uppercase">${item.category}</span>
+                        </div>
+                        <div class="p-5">
+                            <span class="text-xs text-gray-400 block mb-1"><i class="far fa-calendar mr-1"></i> ${item.date}</span>
+                            <h4 class="font-bold text-navy-900 dark:text-white text-base line-clamp-2">${item.title}</h4>
+                            <p class="text-xs text-gray-600 dark:text-slate-300 mt-2 line-clamp-3">${item.content}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="openNewsModal(${item.id})" class="text-xs font-bold text-gold-600 dark:text-gold-400 hover:underline">Baca Selengkapnya &rarr;</button>
+                    </div>
+                `;
+                newsGrid.appendChild(card);
+            });
+        }
+
+        // News Modal Functions
+        function openNewsModal(id) {
+            const item = newsData.find(n => n.id === id);
+            if(!item) return;
+
+            document.getElementById('modalImg').src = item.img;
+            document.getElementById('modalCategory').innerText = item.category;
+            document.getElementById('modalDate').innerHTML = `<i class="far fa-calendar mr-1"></i> ${item.date}`;
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalContent').innerText = item.content;
+
+            document.getElementById('newsModal').classList.remove('hidden');
+        }
+
+        function closeNewsModal() {
+            document.getElementById('newsModal').classList.add('hidden');
+        }
+
+        function filterNews(cat) {
+            renderNews(cat, document.getElementById('newsSearchInput').value);
+        }
+
+        document.getElementById('newsSearchInput').addEventListener('input', (e) => {
+            renderNews('all', e.target.value);
+        });
+
+        // PPDB LocalStorage Functionality
+        const formPPDB = document.getElementById('formPPDB');
+        const pendaftarCount = document.getElementById('pendaftarCount');
+
+        function getPendaftarData() {
+            return JSON.parse(localStorage.getItem('ppdb_pendaftar') || '[]');
+        }
+
+        function updatePendaftarCounter() {
+            const list = getPendaftarData();
+            pendaftarCount.innerText = `${list.length} Siswa`;
+        }
+
+        formPPDB.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pendaftar = {
+                id: Date.now(),
+                nama: document.getElementById('nama').value,
+                nisn: document.getElementById('nisn').value,
+                jk: document.getElementById('jk').value,
+                pilihanJurusan: document.getElementById('pilihanJurusan').value,
+                telepon: document.getElementById('telepon').value,
+                asalSekolah: document.getElementById('asalSekolah').value,
+                tanggalDaftar: new Date().toLocaleDateString('id-ID')
+            };
+
+            const dataLocal = getPendaftarData();
+            dataLocal.push(pendaftar);
+            localStorage.setItem('ppdb_pendaftar', JSON.stringify(dataLocal));
+
+            updatePendaftarCounter();
+            formPPDB.reset();
+
+            const alertBox = document.getElementById('ppdbAlert');
+            alertBox.classList.remove('hidden');
+            setTimeout(() => alertBox.classList.add('hidden'), 5000);
+        });
+
+        function downloadCSV() {
+            const data = getPendaftarData();
+            if(data.length === 0) {
+                alert('Belum ada data pendaftar tersimpan.');
+                return;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8,ID,Nama,NISN,JK,Jurusan,No HP,Asal Sekolah,Tanggal\n";
+            data.forEach(row => {
+                csvContent += `${row.id},"${row.nama}",${row.nisn},"${row.jk}","${row.pilihanJurusan}","${row.telepon}","${row.asalSekolah}","${row.tanggalDaftar}"\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "Rekap_PPDB_SMA_Nusantara.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Animated Number Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 50;
+                const updateCount = () => {
+                    count += speed;
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 30);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Initializer
+        window.onload = function() {
+            renderNews();
+            updatePendaftarCounter();
+            animateCounters();
+        };
+    </script>
+</body>
+</html>
